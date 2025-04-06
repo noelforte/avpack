@@ -6,9 +6,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 authors = [{ name = "Noel Forte", email = "noel@forte.is" }]
 dependencies = [
-  "pyvips>=2.2.3",
-  "pyyaml>=6.0.2",
-  "textual>=3.0.1",
+  "pyvips==2.2.3",
+  "pyyaml==6.0.2",
+  "textual==3.0.1",
 ]
 
 [project.scripts]
@@ -16,7 +16,7 @@ ffpack = "ffpack.app:run"
 
 [dependency-groups]
 dev = [
-  "textual-dev>=1.7.0",
+  "textual-dev==1.7.0",
 ]
 
 [build-system]

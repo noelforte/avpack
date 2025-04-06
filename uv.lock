@@ -138,13 +138,13 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "pyvips", specifier = ">=2.2.3" },
-    { name = "pyyaml", specifier = ">=6.0.2" },
-    { name = "textual", specifier = ">=3.0.1" },
+    { name = "pyvips", specifier = "==2.2.3" },
+    { name = "pyyaml", specifier = "==6.0.2" },
+    { name = "textual", specifier = "==3.0.1" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "textual-dev", specifier = ">=1.7.0" }]
+dev = [{ name = "textual-dev", specifier = "==1.7.0" }]
 
 [[package]]
 name = "frozenlist"
