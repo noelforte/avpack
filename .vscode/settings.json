@@ -1,0 +1,9 @@
+{
+	"todo-tree.filtering.excludeGlobs": [
+		"**/node_modules/*/**",
+		"**/.venv/**",
+		"**/.git/**"
+	],
+	"python.analysis.autoImportCompletions": true,
+	"python.analysis.typeCheckingMode": "strict"
+}

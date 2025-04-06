@@ -1,0 +1,6 @@
+line-length = 120
+extend-select = ["I"]
+
+[format]
+# Enable reformatting of code snippets in docstrings.
+docstring-code-format = true
