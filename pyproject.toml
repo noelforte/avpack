@@ -6,9 +6,10 @@ readme = "README.md"
 requires-python = ">=3.13"
 authors = [{ name = "Noel Forte", email = "noel@forte.is" }]
 dependencies = [
-  "pyvips==2.2.3",
+  "pydantic>=2.11.2",
+  "pyvips[binary]>=2.2.3",
   "pyyaml==6.0.2",
-  "textual==3.1.0",
+  "textual==3.1.1",
 ]
 
 [project.scripts]
