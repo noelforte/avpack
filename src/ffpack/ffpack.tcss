@@ -1,0 +1,123 @@
+$empty-hatch: right $surface-lighten-1 70%;
+
+/* Components */
+AppHeader {
+	height: 3;
+	padding: 0 2;
+	background: $background-lighten-1;
+	align-vertical: middle;
+}
+
+EncodingQueue {
+	& #empty-message {
+		hatch: $empty-hatch;
+		display: none;
+	}
+
+	&.empty {
+		& #empty-message {
+			display: block;
+		}
+
+		& #queue {
+			display: none;
+		}
+	}
+}
+
+/* Command Palette */
+CommandPalette {  
+  & > Vertical {
+    margin-top: 2;
+    width: 65vw;
+    max-height: 65vh;
+  }
+  
+  & #--input {
+    border: none;
+    border-left: wide $accent;
+    
+    & CommandInput {
+      height: 3;
+      border: none;
+      padding: 1 2;
+    }
+    
+    & SearchIcon {
+      display: none;
+    }
+    
+  }
+  
+  & CommandList {
+    border: none;
+    border-left: wide $accent;
+    padding-bottom: 1;
+  }
+
+}
+
+/* Screens */
+ToolsConfigScreen {
+	align: center middle;
+}
+
+/* General */
+#form {
+	layout: grid;
+	grid-size: 2;
+	width: 60%;
+	height: auto;
+	background: $background;
+	border: solid white 80%;
+	padding: 1 2;
+	grid-rows: 1 2;
+	grid-gutter: 0 1;
+
+	.input-label-row {
+		column-span: 2;
+	}
+}
+
+Label {
+	opacity: 80%;
+
+	&.error-label {
+			width: 1fr;
+			display: none;
+			text-align: right;
+			color: $error;
+	}
+}
+
+Input {
+	column-span: 2;
+	padding: 0 1;
+	height: 1;
+	border: none;
+	
+	&.-invalid {
+		padding-left: 0;
+		border-left: outer $error;
+	}
+	
+	&:focus {
+		border: none;
+		padding-left: 0;
+		border-left: outer $accent 80%;
+		&.-invalid {
+			border-left: outer $error;
+		}
+	}
+}
+
+Button {
+	padding: 0 1;
+	height: 1;
+	border: none;
+	width: 1fr;
+
+	&:disabled {
+		opacity: 40%;
+	}
+}
