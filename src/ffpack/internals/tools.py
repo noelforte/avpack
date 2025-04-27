@@ -20,12 +20,18 @@ class FfTools(BaseModel):
 
     @classmethod
     def auto_detect(cls):
-        return cls.model_construct(ffmpeg=shutil.which("ffmpeg"), ffprobe=shutil.which("ffprobe"))
+        return cls.model_construct(
+            ffmpeg=shutil.which("ffmpeg"), ffprobe=shutil.which("ffprobe")
+        )
 
     @field_validator("*", mode="after")
     @classmethod
     def validate_cmd(cls, value: str):
-        if os.access(value, os.X_OK) and os.path.isabs(value) and os.path.isfile(value):
+        if (
+            os.access(value, os.X_OK)
+            and os.path.isabs(value)
+            and os.path.isfile(value)
+        ):
             return value
         raise ValueError(f"`{value}` is not executable")
 
@@ -33,8 +39,15 @@ class FfTools(BaseModel):
 class ToolsConfigScreen(ModalScreen[FfTools]):
     BINDING_GROUP_TITLE = "Tools Config Bindings"
     BINDINGS = [
-        Binding("escape", "dismiss", "Cancel", tooltip="Cancel and return to main screen"),
-        Binding("ctrl+s", "save", "Save config", tooltip="Save and apply config"),
+        Binding(
+            "escape",
+            "dismiss",
+            "Cancel",
+            tooltip="Cancel and return to main screen",
+        ),
+        Binding(
+            "ctrl+s", "save", "Save config", tooltip="Save and apply config"
+        ),
     ]
 
     def compose(self) -> ComposeResult:
@@ -45,15 +58,25 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
 
             with HorizontalGroup(classes="input-label-row"):
                 yield Label("Path to `ffmpeg`")
-                yield Label("Path is not valid", id="ffmpeg-error-label", classes="error-label")
+                yield Label(
+                    "Path is not valid",
+                    id="ffmpeg-error-label",
+                    classes="error-label",
+                )
 
             yield Input(app.tools.ffmpeg, classes="tool-path", id="ffmpeg-path")
 
             with HorizontalGroup(classes="input-label-row"):
                 yield Label("Path to `ffprobe`")
-                yield Label("Path is not valid", id="ffprobe-error-label", classes="error-label")
+                yield Label(
+                    "Path is not valid",
+                    id="ffprobe-error-label",
+                    classes="error-label",
+                )
 
-            yield Input(app.tools.ffprobe, classes="tool-path", id="ffprobe-path")
+            yield Input(
+                app.tools.ffprobe, classes="tool-path", id="ffprobe-path"
+            )
 
             yield Button("Save", "success", action="save")
             yield Button("Auto-detect", "default", action="auto_detect")
@@ -62,12 +85,21 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
 
     def action_apply(self):
         try:
-            self.dismiss(FfTools(ffmpeg=self.ffmpeg_path.value, ffprobe=self.ffprobe_path.value))
+            self.dismiss(
+                FfTools(
+                    ffmpeg=self.ffmpeg_path.value,
+                    ffprobe=self.ffprobe_path.value,
+                )
+            )
         except ValidationError as invalid:
             for error in invalid.errors():
                 invalid_field = error.get("loc")[0]
-                self.query_one(f"#{invalid_field}-path", Input).add_class("-invalid")
-                self.query_one(f"#{invalid_field}-error-label", Label).styles.display = "block"
+                self.query_one(f"#{invalid_field}-path", Input).add_class(
+                    "-invalid"
+                )
+                self.query_one(
+                    f"#{invalid_field}-error-label", Label
+                ).styles.display = "block"
 
     def action_auto_detect(self):
         detected = FfTools.auto_detect()

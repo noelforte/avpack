@@ -32,8 +32,20 @@ class Ffpack(App[None], inherit_bindings=False):
     COMMANDS = {FfpackCommandProvider}
     BINDING_GROUP_TITLE = "Global Keybinds"
     BINDINGS = [
-        Binding("ctrl+q", "app.quit", "Quit", show=True, tooltip="Quit the application"),
-        Binding("ctrl+p", "command_palette", "Commands", show=True, tooltip="Show command palette"),
+        Binding(
+            "ctrl+q",
+            "app.quit",
+            "Quit",
+            show=True,
+            tooltip="Quit the application",
+        ),
+        Binding(
+            "ctrl+p",
+            "command_palette",
+            "Commands",
+            show=True,
+            tooltip="Show command palette",
+        ),
     ]
     CSS_PATH = "ffpack.tcss"
 

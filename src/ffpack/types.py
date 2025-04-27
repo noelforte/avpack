@@ -25,7 +25,9 @@ type Libx264Level = Literal[
 ]
 
 # aac types
-type AacProfile = Literal["aac_low", "mpeg2_aac_low", "aac_ltp", "aac_main"] | None
+type AacProfile = (
+    Literal["aac_low", "mpeg2_aac_low", "aac_ltp", "aac_main"] | None
+)
 
 # pixel format types
 type PixelFormat = Literal[

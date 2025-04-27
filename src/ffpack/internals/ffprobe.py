@@ -5,7 +5,13 @@ from subprocess import SubprocessError, run
 from pydantic import BaseModel
 
 FFPROBE = shutil.which("ffprobe")
-FFPROBE_ARGS = ["-of", "json", "-show_streams", "-show_chapters", "-show_format"]
+FFPROBE_ARGS = [
+    "-of",
+    "json",
+    "-show_streams",
+    "-show_chapters",
+    "-show_format",
+]
 
 
 class Stream(BaseModel):
@@ -66,7 +72,9 @@ class ProbeData:
         if FFPROBE is None:
             raise SubprocessError("ffprobe not found")
 
-        probe = run([FFPROBE, *FFPROBE_ARGS, input], capture_output=True, check=True)
+        probe = run(
+            [FFPROBE, *FFPROBE_ARGS, input], capture_output=True, check=True
+        )
         data = json.loads(probe.stdout)
 
         print(data)

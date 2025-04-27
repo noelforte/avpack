@@ -31,7 +31,12 @@ class EncodingQueue(Vertical):
     class ItemsChanged(Message):
         path: str
 
-    def __init__(self, id: str | None = None, classes: str | None = None, disabled: bool = False) -> None:
+    def __init__(
+        self,
+        id: str | None = None,
+        classes: str | None = None,
+        disabled: bool = False,
+    ) -> None:
         super().__init__(id=id, classes=classes, disabled=disabled)
         self.queue = VerticalScroll(id="queue")
 
