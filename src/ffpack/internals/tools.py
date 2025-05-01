@@ -49,12 +49,28 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
             "ctrl+s", "save", "Save config", tooltip="Save and apply config"
         ),
     ]
+    DEFAULT_CSS = """
+    ToolsConfigScreen {
+        align: center middle;
+    }
+
+    #form {
+        grid-gutter: 0 1;
+        grid-rows: 1 2;
+        grid-size: 2;
+        layout: grid;
+    }
+
+    .input-label-row {
+        column-span: 2;
+    }
+    """
 
     def compose(self) -> ComposeResult:
         app = cast("Ffpack", self.app)
 
-        with Container(id="form") as vs:
-            vs.border_title = "Configure 'ff' tool paths"
+        with Container(id="form", classes="modal-box") as container:
+            container.border_title = "Configure 'ff' tool paths"
 
             with HorizontalGroup(classes="input-label-row"):
                 yield Label("Path to `ffmpeg`")

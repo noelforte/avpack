@@ -1,5 +1,15 @@
 $empty-hatch: right $surface-lighten-1 70%;
 
+/* Modals */
+.modal-box {
+	background: $background;
+	border: solid white 80%;
+	height: auto;
+	padding: 1 2;
+	width: 60%;
+}
+
+
 /* Components */
 AppHeader {
 	height: 3;
@@ -57,28 +67,7 @@ CommandPalette {
 
 }
 
-/* Screens */
-ToolsConfigScreen {
-	align: center middle;
-}
-
 /* General */
-#form {
-	layout: grid;
-	grid-size: 2;
-	width: 60%;
-	height: auto;
-	background: $background;
-	border: solid white 80%;
-	padding: 1 2;
-	grid-rows: 1 2;
-	grid-gutter: 0 1;
-
-	.input-label-row {
-		column-span: 2;
-	}
-}
-
 Label {
 	opacity: 80%;
 
