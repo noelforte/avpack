@@ -99,7 +99,7 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
 
         yield Footer(show_command_palette=False)
 
-    def action_apply(self):
+    def action_save(self):
         try:
             self.dismiss(
                 FfTools(
