@@ -51,7 +51,7 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
     ]
 
     def compose(self) -> ComposeResult:
-        app = cast(Ffpack, self.app)
+        app = cast("Ffpack", self.app)
 
         with Container(id="form") as vs:
             vs.border_title = "Configure 'ff' tool paths"

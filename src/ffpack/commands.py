@@ -15,7 +15,7 @@ class FfpackCommandProvider(Provider):
     @property
     def commands(self) -> tuple[CommandType, ...]:
         screen = self.screen
-        app = cast(Ffpack, screen.app)
+        app = cast("Ffpack", screen.app)
 
         commands_to_show: list[CommandType] = []
 
