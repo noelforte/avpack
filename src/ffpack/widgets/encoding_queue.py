@@ -1,6 +1,7 @@
 from dataclasses import dataclass
+from typing import TYPE_CHECKING, cast
 
-from textual import on
+from textual import on, work
 from textual.app import ComposeResult
 from textual.binding import Binding
 from textual.containers import Vertical, VerticalScroll
@@ -10,7 +11,11 @@ from textual.widget import AwaitMount
 from textual.widgets import Label
 
 from ffpack.widgets.center_middle import CenterMiddle
+from ffpack.widgets.file_picker import MediaFileOpen
 from ffpack.widgets.media_item import MediaItem
+
+if TYPE_CHECKING:
+    from ffpack.app import Ffpack
 
 
 class EncodingQueue(Vertical):
@@ -45,9 +50,16 @@ class EncodingQueue(Vertical):
         yield CenterMiddle(Label("No items to encode"), id="empty-message")
         yield self.queue
 
-    def action_add_item(self, path: str) -> AwaitMount:
-        self.post_message(self.ItemsChanged(path))
-        return self.queue.mount(MediaItem(path))
+    @work
+    async def action_add_item(self) -> AwaitMount | None:
+        app = cast("Ffpack", self.app)
+
+        if file := await app.push_screen_wait(
+            MediaFileOpen(title="Add an item to encode")
+        ):
+            path = file.as_posix()
+            self.post_message(self.ItemsChanged(path))
+            return self.queue.mount(MediaItem(path))
 
     @on(ItemsChanged)
     def set_empty_state(self) -> None:
