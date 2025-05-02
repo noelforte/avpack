@@ -94,8 +94,8 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
                 app.tools.ffprobe, classes="tool-path", id="ffprobe-path"
             )
 
-            yield Button("Save", "success", action="save")
-            yield Button("Auto-detect", "default", action="auto_detect")
+            yield Button("Save", "success", action="screen.save")
+            yield Button("Auto-detect", "default", action="screen.auto_detect")
 
         yield Footer(show_command_palette=False)
 
