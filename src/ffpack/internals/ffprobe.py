@@ -1,4 +1,3 @@
-import json
 import shutil
 from subprocess import SubprocessError, run
 
@@ -21,12 +20,14 @@ class Stream(BaseModel):
     codec_type: str
     time_base: str
     tags: dict[str, str]
+    disposition: dict[str, bool]
     start_time: float
 
 
 class VideoStream(Stream):
     """A video stream"""
 
+    codec_type: str = "video"
     width: int
     height: int
     r_frame_rate: str
@@ -35,9 +36,16 @@ class VideoStream(Stream):
 class AudioStream(Stream):
     """An audio stream"""
 
+    codec_type: str = "audio"
     sample_rate: int
     channels: int
     channel_layout: str
+
+
+class SubtitleStream(Stream):
+    """A subtitle stream"""
+
+    codec_type: str = "subtitle"
 
 
 class Chapter(BaseModel):
@@ -61,31 +69,20 @@ class Format(BaseModel):
     tags: dict[str, str]
 
 
-class ProbeData:
+class ProbeData(BaseModel):
     """An object containing ffprobe data"""
 
-    streams: list[VideoStream | AudioStream | Stream]
-    chapters: list[Chapter]
+    streams: tuple[VideoStream | AudioStream | SubtitleStream | Stream, ...]
+    chapters: tuple[Chapter, ...]
     format: Format
 
-    def __init__(self, input: str):
+    @classmethod
+    def from_path(cls, input: str):
         if FFPROBE is None:
             raise SubprocessError("ffprobe not found")
 
         probe = run(
             [FFPROBE, *FFPROBE_ARGS, input], capture_output=True, check=True
         )
-        data = json.loads(probe.stdout)
 
-        print(data)
-
-        self.format = Format(**data["format"])
-        self.chapters = [Chapter(**entry) for entry in data["chapters"]]
-        self.streams = [
-            VideoStream(**entry)
-            if entry["codec_type"] == "video"
-            else AudioStream(**entry)
-            if entry["codec_type"] == "audio"
-            else Stream(**entry)
-            for entry in data["streams"]
-        ]
+        return cls.model_validate_json(probe.stdout)

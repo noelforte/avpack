@@ -23,7 +23,7 @@ class MediaItem(Widget):
     def __init__(self, input: str) -> None:
         super().__init__()
         self.input = input
-        self.data = ProbeData(input)
+        self.data = ProbeData.from_path(input)
         self.profile = EncodeProfile()
 
         self.INPUT_SECTION = Content.from_markup(
