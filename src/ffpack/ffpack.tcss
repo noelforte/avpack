@@ -9,7 +9,6 @@ $empty-hatch: right $surface-lighten-1 70%;
 	width: 60%;
 }
 
-
 /* Components */
 AppHeader {
 	height: 3;
@@ -25,46 +24,44 @@ EncodingQueue {
 	}
 
 	&.empty {
-		& #empty-message {
+		#empty-message {
 			display: block;
 		}
 
-		& #queue {
+		#queue {
 			display: none;
 		}
 	}
 }
 
 /* Command Palette */
-CommandPalette {  
-  & > Vertical {
-    margin-top: 2;
-    width: 65vw;
-    max-height: 65vh;
-  }
-  
-  & #--input {
-    border: none;
-    border-left: wide $accent;
-    
-    & CommandInput {
-      height: 3;
-      border: none;
-      padding: 1 2;
-    }
-    
-    & SearchIcon {
-      display: none;
-    }
-    
-  }
-  
-  & CommandList {
-    border: none;
-    border-left: wide $accent;
-    padding-bottom: 1;
-  }
+CommandPalette {
+	& > Vertical {
+		margin-top: 2;
+		width: 65vw;
+		max-height: 65vh;
+	}
 
+	& #--input {
+		border: none;
+		border-left: wide $accent;
+
+		& CommandInput {
+			height: 3;
+			border: none;
+			padding: 1 2;
+		}
+
+		& SearchIcon {
+			display: none;
+		}
+	}
+
+	CommandList {
+		border: none;
+		border-left: wide $accent;
+		padding-bottom: 1;
+	}
 }
 
 /* General */
@@ -72,10 +69,10 @@ Label {
 	opacity: 80%;
 
 	&.error-label {
-			width: 1fr;
-			display: none;
-			text-align: right;
-			color: $error;
+		width: 1fr;
+		display: none;
+		text-align: right;
+		color: $error;
 	}
 }
 
@@ -84,12 +81,12 @@ Input {
 	padding: 0 1;
 	height: 1;
 	border: none;
-	
+
 	&.-invalid {
 		padding-left: 0;
 		border-left: outer $error;
 	}
-	
+
 	&:focus {
 		border: none;
 		padding-left: 0;
@@ -108,5 +105,50 @@ Button {
 
 	&:disabled {
 		opacity: 40%;
+	}
+}
+
+EncodeProgressScreen {
+	align: center middle;
+
+	& .description {
+		width: 1fr;
+	}
+
+	& #steps {
+		color: $text-muted;
+	}
+
+	& ProgressBar {
+		margin-top: 1;
+
+		& #bar {
+			width: 1fr;
+		}
+	}
+
+	& Button {
+		margin-top: 1;
+	}
+}
+
+MediaFileOpen,
+MediaFileSave {
+	& Dialog {
+		border-title-background: transparent;
+		background: $background;
+		border: solid white 80%;
+	}
+
+	& DirectoryNavigation {
+		background: transparent;
+	}
+
+	& Input {
+		margin-left: 1;
+	}
+
+	#select {
+		background: $success-darken-2;
 	}
 }
