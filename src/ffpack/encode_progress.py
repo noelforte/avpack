@@ -5,12 +5,11 @@ from textual import work
 from textual.app import ComposeResult
 from textual.binding import Binding
 from textual.containers import HorizontalGroup, VerticalGroup
-from textual.content import Content
 from textual.reactive import reactive
 from textual.screen import ModalScreen
 from textual.widgets import Button, Label, ProgressBar
 
-from ffpack.widgets.sequence_label import SequenceLabel
+from ffpack.widgets import SequenceLabel
 
 if TYPE_CHECKING:
     from ffpack.app import Ffpack

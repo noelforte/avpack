@@ -10,9 +10,7 @@ from textual.reactive import reactive
 from textual.widget import AwaitMount
 from textual.widgets import Label
 
-from ffpack.widgets.center_middle import CenterMiddle
-from ffpack.widgets.file_picker import MediaFileOpen
-from ffpack.widgets.media_item import MediaItem
+from ffpack.widgets import CenterMiddle, MediaFileOpen, MediaItem
 
 if TYPE_CHECKING:
     from ffpack.app import Ffpack

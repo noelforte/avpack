@@ -7,10 +7,10 @@ from textual.containers import Horizontal
 from textual.screen import Screen
 from textual.widgets import Footer, Label
 
+from ffpack import VERSION
 from ffpack.commands import FfpackCommandProvider
 from ffpack.internals.tools import FfTools, ToolsConfigScreen
-from ffpack.version import VERSION
-from ffpack.widgets.encoding_queue import EncodingQueue
+from ffpack.widgets import EncodingQueue
 
 
 class AppHeader(Horizontal):
