@@ -1,0 +1,10 @@
+{
+	"overrides": [
+		{
+			"files": ["*.tcss"],
+			"options": {
+				"parser": "css"
+			}
+		}
+	]
+}
