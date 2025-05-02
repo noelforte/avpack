@@ -45,7 +45,7 @@ type PixelFormat = Literal[
     "gray10le",
 ]
 
-# HLS stream types
+# HLS types
 type HlsMediaType = Literal["mpegts", "fmp4"]
 type HlsVideoCodec = Literal["libx264", "libx265"]
 type HlsAudioCodec = Literal["aac", "flac", "ac3", "eac3"]
