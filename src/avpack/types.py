@@ -1,8 +1,11 @@
 from typing import Literal
 
+# General types
+type AudioSampleRate = Literal[44_100, 48_000, 96_000]
+
 # libx264 types
-type Libx264Profile = Literal["baseline", "main", "high"]
-type Libx264Level = Literal[
+type H264Profile = Literal["baseline", "main", "high"]
+type H264Level = Literal[
     "1.0",
     "1.1",
     "1.2",
@@ -24,10 +27,8 @@ type Libx264Level = Literal[
     "6.2",
 ]
 
-# aac types
-type AacProfile = (
-    Literal["aac_low", "mpeg2_aac_low", "aac_ltp", "aac_main"] | None
-)
+# AAC types
+type AacProfile = Literal["aac_low", "mpeg2_aac_low", "aac_ltp", "aac_main"]
 
 # pixel format types
 type PixelFormat = Literal[
