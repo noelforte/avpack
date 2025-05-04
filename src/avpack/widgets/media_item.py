@@ -11,8 +11,8 @@ from textual.reactive import reactive
 from textual.widget import Widget
 from textual.widgets import Static
 
-from ffpack.encode_profile import EncodeProfile
-from ffpack.internals.ffprobe import ProbeData
+from avpack.encode_profile import EncodeProfile
+from avpack.internals.ffprobe import ProbeData
 
 
 class MediaItem(Widget):

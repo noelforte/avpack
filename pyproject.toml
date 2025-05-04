@@ -1,5 +1,5 @@
 [project]
-name = "ffpack"
+name = "avpack"
 version = "0.1.0"
 description = "Video/audio file packager for HLS and DASH streams"
 readme = "README.md"
@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ffpack = "ffpack.app:run"
+avpack = "avpack.app:run"
 
 [dependency-groups]
 dev = [

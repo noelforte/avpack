@@ -9,10 +9,10 @@ from textual.reactive import reactive
 from textual.screen import ModalScreen
 from textual.widgets import Button, Label, ProgressBar
 
-from ffpack.widgets import SequenceLabel
+from avpack.widgets.sequence_label import SequenceLabel
 
 if TYPE_CHECKING:
-    from ffpack.app import Ffpack
+    from avpack.app import AVPack
 
 
 class EncodeProgressScreen(ModalScreen[None]):
@@ -54,7 +54,7 @@ class EncodeProgressScreen(ModalScreen[None]):
 
     @work(exclusive=True, exit_on_error=False)
     async def start(self) -> None:
-        app = cast("Ffpack", self.app)
+        app = cast("AVPack", self.app)
 
         progress = self.query_one(ProgressBar)
         await asyncio.sleep(1)

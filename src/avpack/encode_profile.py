@@ -2,7 +2,7 @@ from typing import Annotated
 
 from pydantic import BaseModel, Field, PositiveInt
 
-from ffpack.types import (
+from avpack.types import (
     AacProfile,
     HlsAudioCodec,
     HlsMediaType,

@@ -10,7 +10,7 @@ from textual.screen import ModalScreen
 from textual.widgets import Button, Footer, Input, Label
 
 if TYPE_CHECKING:
-    from ffpack.app import Ffpack
+    from avpack.app import AVPack
 
 
 class FfTools(BaseModel):
@@ -67,7 +67,7 @@ class ToolsConfigScreen(ModalScreen[FfTools]):
     """
 
     def compose(self) -> ComposeResult:
-        app = cast("Ffpack", self.app)
+        app = cast("AVPack", self.app)
 
         with Container(id="form", classes="modal-box") as container:
             container.border_title = "Configure 'ff' tool paths"

@@ -7,15 +7,15 @@ from textual.containers import Horizontal
 from textual.screen import Screen
 from textual.widgets import Footer, Label
 
-from ffpack import VERSION
-from ffpack.commands import FfpackCommandProvider
-from ffpack.internals.tools import FfTools, ToolsConfigScreen
-from ffpack.widgets import EncodingQueue
+from avpack import VERSION
+from avpack.commands import AVPackCommandProvider
+from avpack.internals.tools import FfTools, ToolsConfigScreen
+from avpack.widgets.encoding_queue import EncodingQueue
 
 
 class AppHeader(Horizontal):
     def compose(self) -> ComposeResult:
-        yield Label(f"[b]ffpack[/b] [dim]v{VERSION}[/dim]", id="app-title")
+        yield Label(f"[b]avpack[/b] [dim]v{VERSION}[/dim]", id="app-title")
 
 
 class MainScreen(Screen[None]):
@@ -25,11 +25,11 @@ class MainScreen(Screen[None]):
         yield Footer(show_command_palette=False)
 
 
-class Ffpack(App[None], inherit_bindings=False):
-    """Main ffpack app class"""
+class AVPack(App[None], inherit_bindings=False):
+    """Main avpack app class"""
 
     ALLOW_SELECT = False
-    COMMANDS = {FfpackCommandProvider}
+    COMMANDS = {AVPackCommandProvider}
     BINDING_GROUP_TITLE = "Global Keybinds"
     BINDINGS = [
         Binding(
@@ -47,7 +47,7 @@ class Ffpack(App[None], inherit_bindings=False):
             tooltip="Show command palette",
         ),
     ]
-    CSS_PATH = "ffpack.tcss"
+    CSS_PATH = "avpack.tcss"
 
     tools: FfTools
 
@@ -79,7 +79,7 @@ class Ffpack(App[None], inherit_bindings=False):
 
 
 def run() -> None:
-    Ffpack().run()
+    AVPack().run()
 
 
 if __name__ == "__main__":

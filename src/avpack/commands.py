@@ -6,20 +6,20 @@ from textual.types import IgnoreReturnCallbackType
 CommandType = tuple[str, IgnoreReturnCallbackType, str, bool]
 
 if TYPE_CHECKING:
-    from ffpack.app import Ffpack
+    from avpack.app import AVPack
 
 
-class FfpackCommandProvider(Provider):
-    """Common app commands for ffpack"""
+class AVPackCommandProvider(Provider):
+    """Common app commands for avpack"""
 
     @property
     def commands(self) -> tuple[CommandType, ...]:
         screen = self.screen
-        app = cast("Ffpack", screen.app)
+        app = cast("AVPack", screen.app)
 
         commands_to_show: list[CommandType] = []
 
-        from ffpack.app import MainScreen
+        from avpack.app import MainScreen
 
         # If on main screen
         if isinstance(screen, MainScreen):
@@ -42,7 +42,7 @@ class FfpackCommandProvider(Provider):
             )
 
             commands_to_show.append(
-                ("app: Quit Ffpack", app.action_quit, "Quit ffpack", True),
+                ("app: Quit avpack", app.action_quit, "Quit avpack", True),
             )
 
         return tuple(commands_to_show)

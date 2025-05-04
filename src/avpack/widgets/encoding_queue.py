@@ -10,10 +10,12 @@ from textual.reactive import reactive
 from textual.widget import AwaitMount
 from textual.widgets import Label
 
-from ffpack.widgets import CenterMiddle, MediaFileOpen, MediaItem
+from avpack.widgets.center_middle import CenterMiddle
+from avpack.widgets.file_picker import MediaFileOpen
+from avpack.widgets.media_item import MediaItem
 
 if TYPE_CHECKING:
-    from ffpack.app import Ffpack
+    from avpack.app import AVPack
 
 
 class EncodingQueue(Vertical):
@@ -50,7 +52,7 @@ class EncodingQueue(Vertical):
 
     @work
     async def action_add_item(self) -> AwaitMount | None:
-        app = cast("Ffpack", self.app)
+        app = cast("AVPack", self.app)
 
         if file := await app.push_screen_wait(
             MediaFileOpen(title="Add an item to encode")
