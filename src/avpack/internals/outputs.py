@@ -2,7 +2,7 @@ from typing import Annotated
 
 from pydantic import BaseModel, Field, PositiveInt
 
-from ffpack.types import AudioSampleRate, PixelFormat
+from avpack.types import AudioSampleRate, PixelFormat
 
 
 class VideoOutput(BaseModel):

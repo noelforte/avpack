@@ -4,8 +4,8 @@ from collections.abc import Iterable
 from subprocess import PIPE, Popen
 from typing import Any
 
-from ffpack.encode_profile import EncodeProfile
-from ffpack.internals.ffprobe import ProbeData
+from avpack.encode_profile import EncodeProfile
+from avpack.internals.ffprobe import ProbeData
 
 TOTAL_DURATION = 60.026633
 
