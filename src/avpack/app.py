@@ -9,8 +9,8 @@ from textual.widgets import Footer, Label
 
 from avpack import VERSION
 from avpack.commands import AVPackCommandProvider
-from avpack.internals import FFTools, ToolsConfigScreen
-from avpack.widgets import EncodingQueue
+from avpack.internals.tools import FFTools, ToolsConfigScreen
+from avpack.widgets.encoding_queue import EncodingQueue
 
 
 class AppHeader(Horizontal):

@@ -14,7 +14,7 @@ from textual.widgets import Static
 
 if TYPE_CHECKING:
     from avpack.encode_profile import EncodeProfile
-    from avpack.internals import ProbeData
+    from avpack.internals.ffprobe import ProbeData
 
 
 class MediaItem(Widget):

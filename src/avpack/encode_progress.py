@@ -9,7 +9,7 @@ from textual.reactive import reactive
 from textual.screen import ModalScreen
 from textual.widgets import Button, Label, ProgressBar
 
-from avpack.widgets import SequenceLabel
+from avpack.widgets.sequence_label import SequenceLabel
 
 if TYPE_CHECKING:
     from avpack.app import AVPack
