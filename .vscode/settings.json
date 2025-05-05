@@ -10,12 +10,12 @@
 		"editor.insertSpaces": true,
 		"editor.tabSize": 4
 	},
+	"prettier.documentSelectors": ["**/*.tcss"],
 	"python.analysis.autoImportCompletions": true,
 	"python.analysis.typeCheckingMode": "strict",
 	"todo-tree.filtering.excludeGlobs": [
 		"**/node_modules/*/**",
 		"**/.venv/**",
 		"**/.git/**"
-	],
-	"prettier.documentSelectors": ["**/*.tcss"]
+	]
 }
