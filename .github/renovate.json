@@ -1,4 +1,4 @@
 {
-  "extends": ["github>noelforte/renovate-config"],
-  "ignoreTests": true
+	"extends": ["github>noelforte/renovate-config"],
+	"ignoreTests": true
 }
