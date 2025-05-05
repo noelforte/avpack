@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
-# Test files
-tmp
+# Env files
+.env
+
+# Tool cache files
+.ruff_cache
