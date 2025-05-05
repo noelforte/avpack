@@ -5,7 +5,7 @@ line-length = 80
 docstring-code-format = true
 
 [lint]
-select = [
+extend-select = [
   # pycodestyle
   "E",
   # Pyflakes
