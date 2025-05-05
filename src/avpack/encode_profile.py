@@ -21,9 +21,9 @@ class VideoOutput(BaseModel):
     width: Annotated[int, Field(description="Video frame width")] = -2
     bitrate: Annotated[PositiveInt, Field(description="Video bitrate")]
     profile: Annotated[
-        H264Level, Field(description="Encoding profile for libx264")
+        H264Profile, Field(description="Encoding profile for libx264")
     ]
-    level: Annotated[H264Profile, Field(description="Level for libx264")]
+    level: Annotated[H264Level, Field(description="Level for libx264")]
     pixel_format: Annotated[
         PixelFormat, Field(description="Pixel format to use")
     ] = "yuv420p"
@@ -136,43 +136,43 @@ class EncodeProfile(BaseModel):
                     video=VideoOutput(
                         height=2160, bitrate=18000, profile="high", level="5.2"
                     ),
-                    audio=AudioOutput(bitrate=256, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=256, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=1440, bitrate=10000, profile="high", level="5.2"
                     ),
-                    audio=AudioOutput(bitrate=256, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=256, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=1080, bitrate=6000, profile="high", level="5.1"
                     ),
-                    audio=AudioOutput(bitrate=256, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=256, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=720, bitrate=3000, profile="high", level="4.2"
                     ),
-                    audio=AudioOutput(bitrate=128, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=128, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=480, bitrate=1500, profile="main", level="4.0"
                     ),
-                    audio=AudioOutput(bitrate=96, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=96, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=360, bitrate=800, profile="main", level="3.1"
                     ),
-                    audio=AudioOutput(bitrate=64, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=64, profile="aac_low"),
                 ),
                 MediaOutput(
                     video=VideoOutput(
                         height=240, bitrate=600, profile="main", level="3.1"
                     ),
-                    audio=AudioOutput(bitrate=48, aac_profile="aac_low"),
+                    audio=AudioOutput(bitrate=48, profile="aac_low"),
                 ),
             ]
         )

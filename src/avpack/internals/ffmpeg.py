@@ -5,7 +5,7 @@ from subprocess import PIPE, Popen
 from typing import Any
 
 from avpack.encode_profile import EncodeProfile
-from avpack.internals.ffprobe import ProbeData
+from avpack.internals import ProbeData
 
 TOTAL_DURATION = 60.026633
 

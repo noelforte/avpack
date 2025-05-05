@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from textual import on
 from textual.app import ComposeResult
@@ -11,8 +12,9 @@ from textual.reactive import reactive
 from textual.widget import Widget
 from textual.widgets import Static
 
-from avpack.encode_profile import EncodeProfile
-from avpack.internals.ffprobe import ProbeData
+if TYPE_CHECKING:
+    from avpack.encode_profile import EncodeProfile
+    from avpack.internals import ProbeData
 
 
 class MediaItem(Widget):

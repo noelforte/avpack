@@ -10,9 +10,9 @@ from textual.reactive import reactive
 from textual.widget import AwaitMount
 from textual.widgets import Label
 
-from avpack.widgets.center_middle import CenterMiddle
-from avpack.widgets.file_picker import MediaFileOpen
-from avpack.widgets.media_item import MediaItem
+from .center_middle import CenterMiddle
+from .file_picker import MediaFileOpen
+from .media_item import MediaItem
 
 if TYPE_CHECKING:
     from avpack.app import AVPack
