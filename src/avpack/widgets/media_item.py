@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from textual.app import ComposeResult
 from textual.content import Content
 from textual.reactive import reactive
@@ -30,30 +28,3 @@ class MediaItem(Widget):
     def compose(self) -> ComposeResult:
         self.set_class(self.highlighted, "selected")
         yield Static(self.INPUT_SECTION)
-
-
-class MediaItemList(VerticalScroll):
-    @dataclass
-    class ItemAdded(Message):
-        """Posted when item is added"""
-
-        input_path: str
-        list: MediaItemList
-        item: MediaItem
-
-        @property
-        def control(self) -> MediaItemList:
-            return self.list
-
-    def add_item(self, path: str):
-        new_item = MediaItem(path)
-        self.post_message(self.ItemAdded(path, self, new_item))
-        await_mount = self.mount(new_item)
-        return await_mount
-
-    @on(ItemAdded)
-    def is_empty(self):
-        self.set_class(len(self) == 0, "empty")
-
-    def __len__(self) -> int:
-        return len(self._nodes)
