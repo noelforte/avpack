@@ -6,7 +6,7 @@ from typing import Any
 
 from avpack.encode_profile import EncodeProfile
 
-from .ffprobe import ProbeData
+from .data import MediaData
 
 TOTAL_DURATION = 60.026633
 
@@ -20,7 +20,7 @@ __PROGRESS_PATTERN = re.compile(r"progress=\w+")
 class FFMpegEncoder:
     def __init__(
         self,
-        input: ProbeData,
+        input: MediaData,
         profile: EncodeProfile | None = None,
         dry_run: bool = False,
     ) -> None:

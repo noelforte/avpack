@@ -71,7 +71,7 @@ def disambiguate_stream_types(v: dict[str, str] | Stream):
     return codec if codec in ("video", "audio", "subtitle") else "..."
 
 
-class ProbeData(BaseModel):
+class MediaData(BaseModel):
     """An object containing ffprobe data"""
 
     streams: tuple[

@@ -1,20 +1,13 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import TYPE_CHECKING
-
-from textual import on
 from textual.app import ComposeResult
-from textual.containers import VerticalScroll
 from textual.content import Content
-from textual.message import Message
 from textual.reactive import reactive
 from textual.widget import Widget
 from textual.widgets import Static
 
-if TYPE_CHECKING:
-    from avpack.encode_profile import EncodeProfile
-    from avpack.internals.ffprobe import ProbeData
+from avpack.encode_profile import EncodeProfile
+from avpack.internals.data import MediaData
 
 
 class MediaItem(Widget):
@@ -25,7 +18,7 @@ class MediaItem(Widget):
     def __init__(self, input: str) -> None:
         super().__init__()
         self.input = input
-        self.data = ProbeData.from_path(input)
+        self.data = MediaData.from_path(input)
         self.profile = EncodeProfile()
 
         self.INPUT_SECTION = Content.from_markup(
