@@ -20,10 +20,10 @@ if TYPE_CHECKING:
 
 class EncodingQueue(Vertical):
     BINDINGS = [
-        Binding("a", "add_item", "Add item"),
-        Binding("backspace", "item_delete", "Delete item"),
-        Binding("up", "cursor_up", "Select previous item"),
-        Binding("down", "cursor_down", "Select previous item"),
+        Binding("a", "add", "Add item"),
+        Binding("backspace", "delete", "Delete item"),
+        Binding("up", "next", "Select previous item"),
+        Binding("down", "prev", "Select previous item"),
     ]
 
     can_focus = True
@@ -35,6 +35,26 @@ class EncodingQueue(Vertical):
     @dataclass
     class ItemsChanged(Message):
         path: str
+
+    @on(ItemsChanged)
+    def set_empty_state(self) -> None:
+        self.set_class(self.items_count == 0, "empty")
+        self.refresh_bindings()
+
+    @work
+    async def action_add(self) -> AwaitMount | None:
+        app = cast("AVPack", self.app)
+
+        if file := await app.push_screen_wait(
+            MediaFileOpen(location="~", title="Add an item to encode")
+        ):
+            path = file.as_posix()
+            self.post_message(self.ItemsChanged(path))
+            return self.queue.mount(MediaItem(path))
+
+    @property
+    def items_count(self):
+        return len(self.queue._nodes)
 
     def __init__(
         self,
@@ -50,21 +70,10 @@ class EncodingQueue(Vertical):
         yield CenterMiddle(Label("No items to encode"), id="empty-message")
         yield self.queue
 
-    @work
-    async def action_add_item(self) -> AwaitMount | None:
-        app = cast("AVPack", self.app)
-
-        if file := await app.push_screen_wait(
-            MediaFileOpen(title="Add an item to encode")
-        ):
-            path = file.as_posix()
-            self.post_message(self.ItemsChanged(path))
-            return self.queue.mount(MediaItem(path))
-
-    @on(ItemsChanged)
-    def set_empty_state(self) -> None:
-        self.set_class(self.items_count == 0, "empty")
-
-    @property
-    def items_count(self):
-        return len(self.queue._nodes)
+    def check_action(
+        self, action: str, parameters: tuple[object, ...]
+    ) -> bool | None:
+        """Check if an action may run."""
+        return not (
+            action in ("next", "prev", "delete") and self.items_count == 0
+        )
