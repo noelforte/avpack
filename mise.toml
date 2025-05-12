@@ -8,3 +8,7 @@ venv.path = ".venv"
 [tasks.lint]
 run = "ruff check"
 description = "check with ruff"
+
+[tasks.generate-schemas]
+run = "uv run scripts/generate-schemas.py"
+description = "Generate schemeas from pydantic models"
