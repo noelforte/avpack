@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from avpack.app import AVPack
 
 
-class FFTools(BaseModel):
+class ExternalTools(BaseModel):
     ffmpeg: str = ""
     ffprobe: str = ""
     model_config = {"revalidate_instances": "always"}
@@ -36,7 +36,7 @@ class FFTools(BaseModel):
         raise ValueError(f"`{value}` is not executable")
 
 
-class ToolsConfigScreen(ModalScreen[FFTools]):
+class ToolsConfigScreen(ModalScreen[ExternalTools]):
     BINDING_GROUP_TITLE = "Tools Config Bindings"
     BINDINGS = [
         Binding(
@@ -102,7 +102,7 @@ class ToolsConfigScreen(ModalScreen[FFTools]):
     def action_save(self):
         try:
             self.dismiss(
-                FFTools(
+                ExternalTools(
                     ffmpeg=self.ffmpeg_path.value,
                     ffprobe=self.ffprobe_path.value,
                 )
@@ -118,7 +118,7 @@ class ToolsConfigScreen(ModalScreen[FFTools]):
                 ).styles.display = "block"
 
     def action_auto_detect(self):
-        detected = FFTools.auto_detect()
+        detected = ExternalTools.auto_detect()
         self.ffmpeg_path.value = detected.ffmpeg
         self.ffprobe_path.value = detected.ffprobe
 

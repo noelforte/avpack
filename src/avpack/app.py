@@ -9,7 +9,7 @@ from textual.widgets import Footer, Label
 
 from avpack import VERSION
 from avpack.commands import AVPackCommandProvider
-from avpack.internals.tools import FFTools, ToolsConfigScreen
+from avpack.internals.tools import ExternalTools, ToolsConfigScreen
 from avpack.widgets.encoding_queue import EncodingQueue
 
 
@@ -49,17 +49,17 @@ class AVPack(App[None], inherit_bindings=False):
     ]
     CSS_PATH = "avpack.tcss"
 
-    tools: FFTools
+    tools: ExternalTools
 
     def on_mount(self) -> None:
         # Set default theme
         self.theme = "textual-dark"
 
         # Attempt to auto-detect tools
-        self.tools = FFTools.auto_detect()
+        self.tools = ExternalTools.auto_detect()
 
         try:
-            FFTools.model_validate(self.tools, from_attributes=True)
+            ExternalTools.model_validate(self.tools, from_attributes=True)
         except ValidationError:
             self.notify(
                 "Ensure `ffmpeg` and `ffprobe` are on your $PATH "
