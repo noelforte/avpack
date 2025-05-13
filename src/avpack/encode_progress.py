@@ -1,5 +1,4 @@
 import asyncio
-from typing import TYPE_CHECKING, cast
 
 from textual import work
 from textual.app import ComposeResult
@@ -10,9 +9,6 @@ from textual.screen import ModalScreen
 from textual.widgets import Button, Label, ProgressBar
 
 from avpack.widgets.sequence_label import SequenceLabel
-
-if TYPE_CHECKING:
-    from avpack.app import AVPack
 
 
 class EncodeProgressScreen(ModalScreen[None]):
@@ -54,8 +50,6 @@ class EncodeProgressScreen(ModalScreen[None]):
 
     @work(exclusive=True, exit_on_error=False)
     async def start(self) -> None:
-        app = cast("AVPack", self.app)
-
         progress = self.query_one(ProgressBar)
         await asyncio.sleep(1)
         for i in range(1, 21, 1):
