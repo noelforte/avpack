@@ -5,6 +5,7 @@ from subprocess import PIPE, Popen
 from typing import Any
 
 from avpack.internals.data import MediaData
+from avpack.outputs.profile import EncodeProfile
 
 TOTAL_DURATION = 60.026633
 
@@ -62,7 +63,7 @@ class FFMpegEncoder:
             self.input.format.duration = duration_override
 
         self.process = subprocess.Popen(
-            TEST_ARGS,
+            [],  # TODO: populate args
             universal_newlines=False,
             stdout=PIPE,
             stderr=PIPE,
