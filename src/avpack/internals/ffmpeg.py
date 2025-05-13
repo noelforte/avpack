@@ -4,9 +4,7 @@ from collections.abc import Iterable
 from subprocess import PIPE, Popen
 from typing import Any
 
-from avpack.encode_profile import EncodeProfile
-
-from .data import MediaData
+from avpack.internals.data import MediaData
 
 TOTAL_DURATION = 60.026633
 
