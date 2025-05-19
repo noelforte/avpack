@@ -7,13 +7,10 @@ from typing import Any
 from avpack.internals.data import MediaData
 from avpack.outputs.profile import EncodeProfile
 
-TOTAL_DURATION = 60.026633
-
-
-__TIMESTAMP_PATTERN = re.compile(
+_TIMESTAMP_PATTERN = re.compile(
     r"^(?P<h>\d+):(?P<m>\d+):(?P<s>[\d]+).(?P<ms>\d+)"
 )
-__PROGRESS_PATTERN = re.compile(r"progress=\w+")
+_PROGRESS_PATTERN = re.compile(r"progress=\w+")
 
 
 class FFMpegEncoder:
@@ -32,7 +29,7 @@ class FFMpegEncoder:
 
     # Given ffmpeg input, return current progress as a float
     def get_progress(self, data: str):
-        match = __TIMESTAMP_PATTERN.match(data)
+        match = _TIMESTAMP_PATTERN.match(data)
 
         if match is None:
             return
