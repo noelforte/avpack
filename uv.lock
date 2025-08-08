@@ -111,7 +111,7 @@ requires-dist = [
     { name = "pyvips", extras = ["binary"], specifier = "==3.0.0" },
     { name = "pyyaml", specifier = "==6.0.2" },
     { name = "textual", specifier = "==3.7.1" },
-    { name = "textual-fspicker", specifier = "==0.4.1" },
+    { name = "textual-fspicker", specifier = "==0.4.2" },
 ]
 
 [package.metadata.requires-dev]
@@ -604,14 +604,14 @@ wheels = [
 
 [[package]]
 name = "textual-fspicker"
-version = "0.4.1"
+version = "0.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "textual" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a4/b0/5f895b15562064ef473bc1e882b6dfb1df4c29fd3259ba09aae481e289a6/textual_fspicker-0.4.1.tar.gz", hash = "sha256:94815262c12d38b69ccba85804d334b998f90ebda7c43d362e9665e59d72cb87", size = 356376, upload-time = "2025-02-28T10:12:05.511Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/15/19/ff2c2d8b9d5d61e2ccd4a54f045d474ea4451b737caf7f83c5f39c875dc2/textual_fspicker-0.4.2.tar.gz", hash = "sha256:39253fac33b47844d9ae1bca9a1ad4725da4343b5cf8b9c3ff440a282cc9a746", size = 356881, upload-time = "2025-08-07T08:06:55.897Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0b/17/6787a44e5516901f81ebd1ad65e28f8b46260a38be38b5136242b7ed08d7/textual_fspicker-0.4.1-py3-none-any.whl", hash = "sha256:c143f126c8664ba3bfe844d853d26caf0832c7d1b0f16d69e4a8654e8b2fb3d3", size = 21033, upload-time = "2025-02-28T10:12:03.517Z" },
+    { url = "https://files.pythonhosted.org/packages/2e/21/f66594fced43f457dae1053f20980507a8e20eda4e00ba0388036fada8b4/textual_fspicker-0.4.2-py3-none-any.whl", hash = "sha256:f848cb2a29fb974e913a78b1a6792cf77ebd15b38c90700741934c1403cf5c7c", size = 21292, upload-time = "2025-08-07T08:06:53.939Z" },
 ]
 
 [[package]]
