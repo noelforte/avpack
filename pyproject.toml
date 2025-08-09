@@ -9,7 +9,7 @@ dependencies = [
   "pydantic==2.11.7",
   "pyvips[binary]==3.0.0",
   "pyyaml==6.0.2",
-  "textual-fspicker==0.4.2",
+  "textual-fspicker==0.4.3",
   "textual==3.7.1",
 ]
 
