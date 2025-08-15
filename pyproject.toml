@@ -18,7 +18,7 @@ avpack = "avpack.app:run"
 
 [dependency-groups]
 dev = [
-  "ruff==0.12.8",
+  "ruff==0.12.9",
   "textual-dev==1.7.0",
 ]
 
