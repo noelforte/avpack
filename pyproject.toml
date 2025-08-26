@@ -10,7 +10,7 @@ dependencies = [
   "pyvips[binary]==3.0.0",
   "pyyaml==6.0.2",
   "textual-fspicker==0.5.0",
-  "textual==3.7.1",
+  "textual==5.3.0",
 ]
 
 [project.scripts]
