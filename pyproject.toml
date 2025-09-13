@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = "==3.13.7"
 authors = [{ name = "Noel Forte", email = "noel@forte.is" }]
 dependencies = [
-  "pydantic==2.11.7",
+  "pydantic==2.11.8",
   "pyvips[binary]==3.0.0",
   "pyyaml==6.0.2",
   "textual-fspicker==0.6.0",
