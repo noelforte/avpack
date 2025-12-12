@@ -7,7 +7,7 @@ requires-python = "==3.14.2"
 authors = [{ name = "Noel Forte", email = "noel@forte.is" }]
 dependencies = [
   "pydantic==2.12.5",
-  "pyvips[binary]==3.0.0",
+  "pyvips[binary]==3.1.0",
   "pyyaml==6.0.3",
   "textual-fspicker==0.6.0",
   "textual==5.3.0",
