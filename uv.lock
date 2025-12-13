@@ -126,7 +126,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pydantic", specifier = "==2.12.5" },
-    { name = "pyvips", extras = ["binary"], specifier = "==3.1.0" },
+    { name = "pyvips", extras = ["binary"], specifier = "==3.1.1" },
     { name = "pyyaml", specifier = "==6.0.3" },
     { name = "textual", specifier = "==5.3.0" },
     { name = "textual-fspicker", specifier = "==0.6.0" },
@@ -530,12 +530,12 @@ wheels = [
 
 [[package]]
 name = "pyvips"
-version = "3.1.0"
+version = "3.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/ed/612a836f3d5617ca9674b0d0d99249fc07cc016a7420789ad85bf5ad6999/pyvips-3.1.0.tar.gz", hash = "sha256:f03013391164ba358ca8f61299ce9c4f7d127a8957c31614dbb229ddb3afaebb", size = 57077, upload-time = "2025-12-08T17:07:17.076Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2d/6a/282936de9faac6addf6bc8792c18e006489d0023ffd8856b8643f54d0558/pyvips-3.1.1.tar.gz", hash = "sha256:84fe744d023b1084ac2516bb17064cacd41c7f8aabf8e524dd383534941b9301", size = 56951, upload-time = "2025-12-09T18:38:06.355Z" }
 
 [package.optional-dependencies]
 binary = [
